@@ -122,6 +122,8 @@ namespace NetworkSpdTools
             }
             catch {}
         }
+
+        public bool is_disable_autoconnect = false;
         public void FormNetworkSelect()
         {
             string errorcode = "";
@@ -163,6 +165,7 @@ namespace NetworkSpdTools
                 catch
                 {
                     errorcode = "error";
+                    is_disable_autoconnect = true;
                     if (DLL.Message.Show_Option("このアダプター名は無効です。再認証しますか？", "再認証", "終了") == "No")
                     {
                         DLL.main.taskkill(DLL.main.myappname());

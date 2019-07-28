@@ -49,12 +49,15 @@ namespace NetworkSpdTools
                 DLL.main.ReadBinaryData(DLL.main.FileName, out obj);
                 DLL.main.Read = (DLL.main.SaveClass)obj;
                 autoload = DLL.main.Read.string1;
-                if (autoload == true.ToString()) Form1.CheckForIllegalCrossThreadCalls = false;
+                if (autoload == true.ToString())
                 {
+                    Form1.CheckForIllegalCrossThreadCalls = false;
                     textBox_Adapter.Text = DLL.main.Read.string2;
                     checkBox1.Checked = true;
+                    if (f.is_disable_autoconnect == false) { 
                     Thread r = new Thread(new ThreadStart(ButtonRun));
                     r.Start();
+                    }
                 }
             }
         }
